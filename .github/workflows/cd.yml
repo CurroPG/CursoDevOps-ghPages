@@ -1,6 +1,6 @@
 name: CD workflow
 
-on: 
+on:
   push:
     branches:
       - main
@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6 
-
+        uses: actions/checkout@v6
+        
       - name: Use SSH key
         run: |
           mkdir -p ~/.ssh/
@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run Build
+        run: npm run build
 
       - name: Deploy
         run: npm run deploy -- -r git@github.com:CurroPG/CursoDevOps-ghPages.git
